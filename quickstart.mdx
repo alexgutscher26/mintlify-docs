@@ -10,7 +10,7 @@ Learn how to set up MonitorFlow and start monitoring your SaaS events.
 ### Prerequisites
 
 <AccordionGroup>
-  <Accordion icon="tools" title="Install required tools">
+  <Accordion title="Install required tools">
     Before you begin, ensure you have the following installed:
     - Node.js 18+
     - npm or pnpm
@@ -18,7 +18,7 @@ Learn how to set up MonitorFlow and start monitoring your SaaS events.
     - Discord account
     - Stripe account (for payments)
   </Accordion>
-  <Accordion icon="git" title="Clone the repository">
+  <Accordion title="Clone the repository">
     Get started by cloning the MonitorFlow repository:
     ```bash
     git clone https://github.com/alexgutscher26/MonitorFlow.git
@@ -30,7 +30,7 @@ Learn how to set up MonitorFlow and start monitoring your SaaS events.
 ### Initial Configuration
 
 <AccordionGroup>
-<Accordion icon="gear" title="Environment setup">
+<Accordion title="Environment setup">
   1. Install dependencies:
   ```bash
   pnpm install
@@ -45,7 +45,7 @@ Learn how to set up MonitorFlow and start monitoring your SaaS events.
   - Discord bot token
   - Stripe API keys
 </Accordion>
-<Accordion icon="database" title="Database setup">
+<Accordion title="Database setup">
   Run database migrations to set up your PostgreSQL database:
   ```bash
   pnpm prisma migrate dev
@@ -56,14 +56,14 @@ Learn how to set up MonitorFlow and start monitoring your SaaS events.
 ### Launch MonitorFlow
 
 <AccordionGroup>
-<Accordion icon="rocket" title="Start the application">
+<Accordion title="Start the application">
   Launch the development server:
   ```bash
   pnpm dev
   ```
   Your MonitorFlow instance will be available at `http://localhost:3000`
 </Accordion>
-<Accordion icon="discord" title="Configure Discord integration">
+<Accordion title="Configure Discord integration">
   1. Create a Discord server for your notifications
   2. Add the MonitorFlow bot to your server
   3. Get api settings in your dashboard
@@ -77,7 +77,7 @@ Start tracking your SaaS events with our intuitive API.
 
 <CardGroup>
 
-<Card title="Track Events" icon="bell" href="/api-reference/endpoint/events">
+<Card title="Track Events" href="/api-reference/endpoint/events">
   Learn how to send events to MonitorFlow for monitoring.
 </Card>
 

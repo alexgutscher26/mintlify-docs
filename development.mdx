@@ -1,30 +1,43 @@
 ---
 title: 'Development'
-description: 'Preview changes locally to update your docs'
+description: 'Set up and run MonitorFlow documentation locally'
 ---
 
 <Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding. <br />
-  Please upgrade to ```docs.json``` before proceeding and delete the legacy ```mint.json``` file.
+  **Prerequisites**: 
+  - Node.js (version 19 or higher)
+  - Git installed on your system
+  - A code editor (VS Code recommended)
+  - Basic knowledge of terminal/command line
 </Info>
 
-Follow these steps to install and run Mintlify on your operating system:
+Follow these steps to set up the MonitorFlow documentation environment:
 
-**Step 1**: Install Mintlify:
+**Step 1**: Clone the MonitorFlow repository and install Mintlify:
 
 <CodeGroup>
 
-  ```bash npm
-  npm i -g mintlify
-  ```
+```bash npm
+# Clone the repository
+git clone https://github.com/your-org/monitorflow.git
+cd monitorflow
+
+# Install Mintlify CLI
+npm i -g mintlify
+```
 
 ```bash yarn
+# Clone the repository
+git clone https://github.com/your-org/monitorflow.git
+cd monitorflow
+
+# Install Mintlify CLI
 yarn global add mintlify
 ```
 
 </CodeGroup>
 
-**Step 2**: Navigate to the docs directory (where the `docs.json` file is located) and execute the following command:
+**Step 2**: Navigate to the documentation directory and start the development server:
 
 ```bash
 mintlify dev
@@ -90,17 +103,25 @@ We suggest using extensions on your IDE to recognize and format MDX. If you're a
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
+  <Accordion title='Error: Could not load the "sharp" module'>
     This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-    2. Upgrade to Node v19 or higher.
+    1. Remove the current mintlify installation: `npm remove -g mintlify`
+    2. Ensure Node.js version is 19 or higher: `node --version`
     3. Reinstall mintlify: `npm install -g mintlify`
   </Accordion>
 
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the \~/.mintlify folder. Afterwards, run `mintlify dev` again.
+  <Accordion title="Environment Setup Issues">
+    1. Verify you're in the correct directory with `docs.json`
+    2. Check Node.js version compatibility
+    3. Clear the mintlify cache: delete the ~/.mintlify folder
+    4. Run `mintlify dev` again
+  </Accordion>
+
+  <Accordion title="MonitorFlow Specific Issues">
+    1. Ensure all required environment variables are set
+    2. Verify the docs.json configuration is correct
+    3. Check that all referenced images exist in the /images directory
+    4. For API documentation issues, verify the OpenAPI spec is valid
   </Accordion>
 </AccordionGroup>
 
