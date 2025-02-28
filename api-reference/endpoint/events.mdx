@@ -1,0 +1,165 @@
+---
+title: 'Events API'
+description: 'Send and manage events through the PingPanda API'
+---
+
+## Overview
+
+The Events API allows you to send events from your application to PingPanda for monitoring and notification purposes.
+
+### Base URL
+
+```bash
+https://api.pingpanda.dev/v1
+```
+
+## Authentication
+
+All API endpoints require authentication using your API key. Include it in the request header:
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+<Note>
+  You can find your API key in the PingPanda dashboard under Settings → API Keys.
+</Note>
+
+## Send Event
+
+<ParamField path="/events" method="POST">
+  Send a new event to PingPanda for monitoring.
+</ParamField>
+
+### Request Body
+
+<ResponseField name="eventType" type="string" required>
+  The type of event (e.g., "user.created", "payment.failed")
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Additional data associated with the event
+</ResponseField>
+
+<ResponseField name="priority" type="string">
+  Event priority level: "low", "medium", "high", "critical"
+  Default: "medium"
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  ISO 8601 formatted timestamp
+  Default: current time
+</ResponseField>
+
+```json
+{
+  "eventType": "payment.failed",
+  "data": {
+    "userId": "user_123",
+    "amount": 99.99,
+    "currency": "USD",
+    "error": "insufficient_funds"
+  },
+  "priority": "high",
+  "timestamp": "2024-02-15T10:30:00Z"
+}
+```
+
+### Response
+
+<ResponseField name="id" type="string">
+  Unique identifier for the created event
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Status of the event processing
+</ResponseField>
+
+```json
+{
+  "id": "evt_123abc",
+  "status": "processed",
+  "timestamp": "2024-02-15T10:30:00Z"
+}
+```
+
+### Error Responses
+
+```json
+{
+  "error": {
+    "code": "invalid_request",
+    "message": "Invalid event type provided"
+  }
+}
+```
+
+## Example Usage
+
+### Using cURL
+
+```bash
+curl -X POST https://api.pingpanda.dev/v1/events \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "eventType": "user.created",
+    "data": {
+      "userId": "user_123",
+      "email": "user@example.com"
+    },
+    "priority": "medium"
+  }'
+```
+
+### Using Node.js
+
+```javascript
+const response = await fetch('https://api.pingpanda.dev/v1/events', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    eventType: 'user.created',
+    data: {
+      userId: 'user_123',
+      email: 'user@example.com'
+    },
+    priority: 'medium'
+  })
+});
+
+const data = await response.json();
+```
+
+## Rate Limits
+
+<Note>
+  The API is rate limited to:
+  - 100 requests per minute for free tier
+  - 1000 requests per minute for PRO tier
+</Note>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion icon="shield" title="Security">
+    - Always keep your API keys secure
+    - Rotate keys periodically
+    - Use environment variables for API keys
+  </Accordion>
+  
+  <Accordion icon="bolt" title="Performance">
+    - Batch events when possible
+    - Handle rate limits gracefully
+    - Implement proper error handling
+  </Accordion>
+  
+  <Accordion icon="code" title="Integration Tips">
+    - Use try-catch blocks for API calls
+    - Implement retry logic for failed requests
+    - Log API responses for debugging
+  </Accordion>
+</AccordionGroup>

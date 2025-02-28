@@ -1,0 +1,154 @@
+---
+title: 'Analytics Dashboard'
+description: 'Understand and analyze your SaaS monitoring data'
+---
+
+## Analytics Overview
+
+The Analytics Dashboard provides comprehensive insights into your SaaS events and monitoring data, helping you make data-driven decisions.
+
+### Key Metrics
+
+<AccordionGroup>
+  <Accordion icon="chart-line" title="Performance Metrics">
+    Monitor critical performance indicators:
+    - **Response Times**: Average, median, and percentile response times
+    - **Uptime**: Service availability percentage
+    - **Error Rates**: Frequency and types of errors
+    - **Request Volume**: Total requests and requests per endpoint
+  </Accordion>
+
+  <Accordion icon="money-bill-trend-up" title="Business Metrics">
+    Track business-critical metrics:
+    - **Revenue Impact**: Monetary impact of service issues
+    - **User Experience**: Affected users during incidents
+    - **SLA Compliance**: Service level agreement performance
+    - **Incident Resolution Time**: Mean time to resolve (MTTR)
+  </Accordion>
+</AccordionGroup>
+
+## Data Visualization
+
+<CardGroup>
+  <Card title="Time Series Analysis" icon="chart-line">
+    View metric trends over time with customizable date ranges:
+    - Real-time data updates
+    - Historical comparison
+    - Trend analysis
+    - Anomaly detection
+  </Card>
+
+  <Card title="Custom Dashboards" icon="gauge">
+    Create personalized views with:
+    - Drag-and-drop widgets
+    - Custom metric combinations
+    - Saved layouts
+    - Team-specific views
+  </Card>
+</CardGroup>
+
+## Advanced Analytics
+
+### Filtering and Segmentation
+
+<AccordionGroup>
+  <Accordion icon="filter" title="Data Filters">
+    Segment your data by:
+    - Event type
+    - Time period
+    - Service/endpoint
+    - Error category
+    - User impact
+    - Geographic location
+  </Accordion>
+
+  <Accordion icon="magnifying-glass-chart" title="Deep Dive Analysis">
+    Perform detailed analysis with:
+    - Root cause identification
+    - Impact assessment
+    - Performance correlation
+    - Pattern recognition
+  </Accordion>
+</AccordionGroup>
+
+## Reporting
+
+### Automated Reports
+
+<Steps>
+  <Step title="Configure Report Settings">
+    1. Select metrics to include
+    2. Set frequency (daily, weekly, monthly)
+    3. Choose delivery format (PDF, CSV, JSON)
+    4. Add recipient email addresses
+  </Step>
+
+  <Step title="Customize Templates">
+    - Add company branding
+    - Set data visualization preferences
+    - Include executive summaries
+    - Configure alert thresholds
+  </Step>
+
+  <Step title="Schedule Distribution">
+    - Set delivery times
+    - Configure time zones
+    - Add delivery conditions
+    - Enable automated sharing
+  </Step>
+</Steps>
+
+## Export and Integration
+
+### Data Export
+
+```bash
+# Export data using our API
+curl -X GET "https://api.monitorflow.com/v1/analytics/export" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d "start_date=2024-01-01" \
+  -d "end_date=2024-01-31" \
+  -d "format=json"
+```
+
+### Available Export Formats
+- JSON
+- CSV
+- Excel
+- PDF Reports
+
+## Best Practices
+
+<CardGroup>
+  <Card title="Data Analysis" icon="microscope">
+    - Regular metric review
+    - Baseline establishment
+    - Trend analysis
+    - Anomaly investigation
+  </Card>
+
+  <Card title="Report Sharing" icon="share-nodes">
+    - Stakeholder communication
+    - Team collaboration
+    - Insight distribution
+    - Action item tracking
+  </Card>
+</CardGroup>
+
+## API Integration
+
+Access analytics programmatically through our API:
+
+```javascript
+// Example: Fetch analytics data
+const response = await fetch('https://api.monitorflow.com/v1/analytics', {
+  headers: {
+    'Authorization': `Bearer ${API_KEY}`,
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+```
+
+Refer to our [API Reference](/api-reference/endpoint/analytics) for detailed endpoint documentation.

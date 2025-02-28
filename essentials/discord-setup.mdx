@@ -1,0 +1,141 @@
+---
+title: 'Discord Setup'
+description: 'Configure Discord notifications for your SaaS events'
+---
+
+## Discord Integration Overview
+
+MonitorFlow uses Discord for real-time event notifications. This guide will help you set up and configure Discord integration for your monitoring needs.
+
+### Prerequisites
+
+<AccordionGroup>
+  <Accordion icon="discord" title="Discord Server Requirements">
+    Before proceeding, ensure you have:
+    - A Discord account with administrative privileges
+    - A Discord server where you want to receive notifications
+    - Server Management permissions to add bots
+    - Your Discord User ID (required for bot communication)
+  </Accordion>
+</AccordionGroup>
+
+## Bot Setup Process
+
+<Steps>
+  <Step title="Get Your Discord ID">
+    1. Enable Developer Mode in Discord:
+      - Open Discord Settings
+      - Go to 'App Settings' > 'Advanced'
+      - Enable 'Developer Mode'
+    2. Get Your Discord ID:
+      - Right-click on your username
+      - Select 'Copy ID'
+      - Save this ID for later configuration
+  </Step>
+
+  <Step title="Create a Discord Server">
+    If you haven't already:
+    1. Open Discord
+    2. Click the '+' button on the server list
+    3. Choose 'Create My Own'
+    4. Follow the setup wizard
+  </Step>
+
+  <Step title="Configure Bot Token">
+    1. Create a Discord Application:
+      - Go to the [Discord Developer Portal](https://discord.com/developers/applications)
+      - Click 'New Application' and name it
+      - Navigate to the 'Bot' section
+      - Click 'Add Bot' and confirm
+      - Copy the bot token (keep this secure!)
+    2. In MonitorFlow dashboard:
+      - Navigate to 'Settings' > 'Integrations'
+      - Enter your Discord User ID
+      - Paste your Discord bot token
+      - Click 'Save Configuration'
+    3. Set Required Bot Permissions:
+      - In the Developer Portal, go to 'OAuth2' > 'URL Generator'
+      - Select 'bot' scope
+      - Select required permissions:
+        - Send Messages
+        - View Channels
+        - Embed Links
+        - Attach Files
+      - Copy the generated URL and use it to invite the bot
+  </Step>
+</Steps>
+
+## Notification Settings
+
+<AccordionGroup>
+  <Accordion icon="bell" title="Event Notifications">
+    Customize your notification preferences:
+    - **Priority Levels**: Set different notification styles for various priority levels
+    - **Channel Mapping**: Route different event types to specific channels
+    - **Mention Rules**: Configure when to @mention team members
+    - **Quiet Hours**: Set periods when notifications should be muted
+  </Accordion>
+
+  <Accordion icon="paintbrush" title="Message Customization">
+    Personalize your notification messages:
+    ```json
+    {
+      "embedColor": "#FF0000",
+      "includeTimestamp": true,
+      "mentionRoles": ["@oncall"],
+      "messageTemplate": "🚨 **{eventType}**\n{eventDescription}",
+      "botStatus": "online",
+      "botActivityType": "Watching",
+      "botActivityName": "SaaS Events"
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Testing Your Integration
+
+<CardGroup>
+  <Card title="Send Test Event" icon="vial">
+    ```bash
+await fetch('http://localhost:3000/api/events', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  },
+  body: JSON.stringify({
+    category: 'bug',
+    fields: {
+      field1: 'value1', // for example: user id
+      field2: 'value2' // for example: user email
+    }
+  })
+})
+    ```
+  </Card>
+
+  <Card title="Verify Notifications" icon="check">
+    After sending a test event:
+    1. Check your configured Discord channel
+    2. Verify the message format and mentions
+    3. Confirm webhook delivery in dashboard
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="wrench" title="Common Issues">
+    - **No notifications**: Verify bot permissions and Discord ID
+    - **Missing mentions**: Check role ID configuration
+    - **Wrong channel**: Confirm channel mapping settings
+    - **Format issues**: Validate message template syntax
+    - **Connection issues**: Ensure both Discord ID and bot token are correct
+  </Accordion>
+
+  <Accordion icon="life-ring" title="Support Resources">
+    If you need help:
+    - Check our [Discord FAQ](/faq#discord)
+    - Join our [Community Server](https://discord.gg/MonitorFlow)
+    - Contact support at support@MonitorFlow.dev
+  </Accordion>
+</AccordionGroup>

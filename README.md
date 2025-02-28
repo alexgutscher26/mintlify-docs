@@ -1,32 +1,38 @@
-# Mintlify Starter Kit
+# MonitorFlow Documentation
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+Welcome to the MonitorFlow documentation! This documentation will help you understand and integrate MonitorFlow's powerful event monitoring solution into your SaaS application.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+## Documentation Structure
+
+Our documentation includes:
+
+- Getting Started Guide
+- API Reference
+- Integration Guides
+- Discord Bot Token Setup
+- Subscription Management
+- Best Practices
 
 ### Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+To preview the documentation changes locally, install the [Mintlify CLI](https://www.npmjs.com/package/mintlify):
 
-```
+```bash
 npm i -g mintlify
 ```
 
-Run the following command at the root of your documentation (where docs.json is)
+Run the following command at the root of the documentation (where docs.json is):
 
-```
+```bash
 mintlify dev
 ```
 
 ### Publishing Changes
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+Changes are automatically deployed to production when pushed to the main branch through our GitHub integration. Install our GitHub App to enable automatic documentation updates.
 
-#### Troubleshooting
+### Troubleshooting
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `docs.json`
+- If Mintlify dev isn't running, execute `mintlify install` to reinstall dependencies
+- For 404 errors, ensure you're in a directory with `docs.json`
+- Check that all referenced images and assets exist in the specified paths
