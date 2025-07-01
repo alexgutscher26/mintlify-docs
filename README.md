@@ -1,32 +1,51 @@
-# Mintlify Starter Kit
+# ReplyIQ Documentation
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+This directory contains the complete documentation for ReplyIQ, built with [Mintlify](https://mintlify.com/).
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+## 📚 Documentation Structure
 
-### Development
+- **Getting Started**: Introduction, quickstart, and authentication
+- **Installation**: Web app, browser extension, and environment setup
+- **Features**: Core functionality and feature guides
+- **Dashboard**: Complete dashboard documentation
+- **API Reference**: Comprehensive API documentation
+- **Browser Extension**: Extension features and usage
+- **Guides**: Step-by-step tutorials and best practices
+- **Support**: FAQ, troubleshooting, and contact information
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview the documentation changes locally. To install, use the following command
+## 🚀 Local Development
 
+To run the documentation locally:
+
+```bash
+# Install Mintlify CLI
+npm i -g mintlify
+
+# Navigate to docs directory
+cd mintlify-docs
+
+# Start development server
+mintlify dev
 ```
-npm i -g mint
-```
 
-Run the following command at the root of your documentation (where docs.json is)
+The documentation will be available at `http://localhost:3000`.
 
-```
-mint dev
-```
+## 📝 Contributing
 
-### Publishing Changes
+When contributing to the documentation:
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+1. Follow the existing structure and naming conventions
+2. Use clear, concise language
+3. Include code examples where appropriate
+4. Test all links and references
+5. Update the navigation in `mint.json` if adding new pages
 
-#### Troubleshooting
+## 🔗 Links
 
-- It the dev environment isn't running - Run `mint install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `docs.json`
+- **Live Documentation**: [docs.replyiq.com](https://docs.replyiq.com)
+- **Main Application**: [app.replyiq.com](https://app.replyiq.com)
+- **GitHub Repository**: [github.com/alexgutscher26/ReplyIQ](https://github.com/alexgutscher26/ReplyIQ)
+
+## 📄 License
+
+This documentation is part of the ReplyIQ project and is licensed under the same terms as the main project.
